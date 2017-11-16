@@ -8,14 +8,13 @@
  * Funktionsergebnis: wahrheitswert Schaltjahr
  *******************************************************************/
 int isLeapYear(int checkYear);
-
  /********************************************************************
  * Funktion int isDateValid(TDate checkDate)
  * - ist übergebenes Datum gültig?
  * Paramater: zu überprüfendes Datum
  * Funktionsergebnis: wahrheitswert Gültigkeit
  *******************************************************************/
-//int isDateValid(TDate checkDate);
+int isDateValid(TDate checkDate);
 
  /********************************************************************
  * Funktion int getDateFromString(char[] str,TDate *parsDate)
@@ -23,7 +22,7 @@ int isLeapYear(int checkYear);
  * Paramater: zu überprüfendes Datum
  * Funktionsergebnis: wahrheitswert Gültigkeit
  *******************************************************************/
-//int getDateFromString(char str[], TDate *parsDate);
+int getDateFromString(char str[], TDate *parsDate);
 
  /********************************************************************
  * Funktion int isDateValid(TDate checkTime)
@@ -31,7 +30,7 @@ int isLeapYear(int checkYear);
  * Paramater: zu überprüfende Uhrzeit
  * Funktionsergebnis: wahrheitswert Gültigkeit
  *******************************************************************/
-//int isTimeValid(TTime checkTime);
+int isTimeValid(TTime checkTime);
 
  /********************************************************************
  * Funktion int getDateFromString(char[] str,TDate *parsDate)
@@ -39,7 +38,7 @@ int isLeapYear(int checkYear);
  * Paramater: zu überprüfendes Datum
  * Funktionsergebnis: wahrheitswert Gültigkeit
  *******************************************************************/
-//int getTimeFromString(char str[], TTime *parsTime);
+ int getTimeFromString(char str[], TTime *parsTime);
 
 /********************************************************************
  * Funktion void inputDate(void)
@@ -53,7 +52,7 @@ int isLeapYear(int checkYear);
  * Paramater: keine
  * Funktionsergebnis: nichts
  *******************************************************************/
-//void inputDate();
+void inputDate();
 
 /********************************************************************
  * Funktion void inputTime(void)
@@ -67,5 +66,33 @@ int isLeapYear(int checkYear);
  * Paramater: keine
  * Funktionsergebnis: nichts
  *******************************************************************/
-//void inputTime();
+void inputTime();
+
+/********************************************************************
+ * Funktion void inputTime(void)
+ *   - Benutzer soll eine Uhrzeit eingeben.
+ *   - Eingabe wird mit Hilfe der Funktion getTimeFromString geparst
+ *     und geprueft. Bei gueltiger Uhrzeit steht diese in der
+ *     Uhrzeitvariable Time.
+ *   - Ergebnis der Eingabe wird entsprechend angezeigt.
+ *   - wird nur die Eingabetaste gedrueckt, wird die Funktion ohne
+ *     weitere Bildschirmausgabe beendet.
+ * Paramater: keine
+ * Funktionsergebnis: nichts
+ *******************************************************************/
+ int getDate();
+
+ /********************************************************************
+ * Funktion void inputTime(void)
+ *   - Benutzer soll eine Uhrzeit eingeben.
+ *   - Eingabe wird mit Hilfe der Funktion getTimeFromString geparst
+ *     und geprueft. Bei gueltiger Uhrzeit steht diese in der
+ *     Uhrzeitvariable Time.
+ *   - Ergebnis der Eingabe wird entsprechend angezeigt.
+ *   - wird nur die Eingabetaste gedrueckt, wird die Funktion ohne
+ *     weitere Bildschirmausgabe beendet.
+ * Paramater: keine
+ * Funktionsergebnis: nichts
+ *******************************************************************/
+ void printDate(TDate *Datum);
 #endif // DATETIME_H_INCLUDED

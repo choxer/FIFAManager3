@@ -262,7 +262,10 @@ void inputDate()
    printf("\n");
 }
 
-
+void printDate(TDate *Datum)
+{
+    printf("%02i.%02i.%04i", Datum->Day, Datum->Month, Datum->Year);
+}
 
 
 

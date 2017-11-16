@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tools.h"
 
 void clearBuffer()
@@ -62,4 +63,13 @@ void waitForEnter()
 {
     char enter;
     scanf("%c", &enter);
+}
+
+int getText(char input[], int maxIn, int wahr, char **ptrOnArray)
+{
+    int check; // alles geklappt? wird returned
+
+    scanf()
+
+    return check;
 }
