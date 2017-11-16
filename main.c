@@ -32,6 +32,8 @@ int main(void)
     */
    //} while (askYesOrNo("Moechten Sie noch einmal (j/n) ?"));
 
+    //hier fehlt noch die main.c aus übung 2 um die mannschaftsverwaltung anzeigen zu lassen 
+    
    return 0;
 }
 
