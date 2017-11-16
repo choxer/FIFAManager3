@@ -76,7 +76,8 @@ void listOneTeam()
     printf("Teamname: %s\n", Teams->TeamName);
     printf("Trainername: %s\n", Teams->TrainerName);
 
-    for(i=0, i<=MAXPLAYERS; i++)
+    int i = 0;
+    for(i=0; i<=MAXPLAYERS; i++)
     {
         listOnePlayer();
     }
@@ -84,6 +85,7 @@ void listOneTeam()
 
 void listOnePlayer()
 {
-    printf("Spielername: %s Trikotnr.:%i Geburtsdatum:%02i.%02i.%04i", Teams->Player->Name,
-                        Teams->Player->Trikot, Teams->Player->Birthday->Day, Teams->Player->Birthday->Month, Teams->Player->Birthday->Year );
+    printf("Spielername: %s", Teams->Player->Name);
+    printf("Trikotnr.:%i", Teams->Player->Trikot);
+    printDate();     // erhählt zeiger auf TDAte
 }
