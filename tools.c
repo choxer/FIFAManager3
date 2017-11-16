@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tools.h"
 
 void clearBuffer()
@@ -63,3 +64,24 @@ void waitForEnter()
     char enter;
     scanf("%c", &enter);
 }
+
+int getText(char input[], int maxIn, int wahr, char **ptrOnArray)
+{
+    int check = 0; // alles geklappt? wird returned
+
+    printf("%s", input); // eingabeaufforderung
+
+    scanf()             // DYNAMISCHE SPEICHERRESERVIERUNG
+
+    return check;
+}
+
+ int getNumber(char input[], int maxIn, int wahr, char **ptrOnArray, int von, int bis)
+ {
+    int check = 0;
+
+    printf("%s", input);    // eingabeaufforderung
+
+
+    return check;
+ }

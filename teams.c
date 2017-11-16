@@ -2,6 +2,7 @@
 #include "datetime.h"
 #include "datastructure.h"
 #include "teams.h"
+#include "tools.h"
 
 TTeam Teams[MAXTEAMS];
 int TeamCounter = 0;
@@ -42,8 +43,11 @@ void addPlayer()
     waitForEnter();
     getDateFromString(birthday, Teams->Player->Birthday);
 
-    printf("Trikotnummer:\n");
-    scanf("%i", &(Teams->Player->Trikot));
+    //printf("Trikotnummer:\n");
+    //scanf("%i", &(Teams->Player->Trikot));
+    // soll mit getNumber(); umgesetzt werden:
+
+    getNumber("Trikotnummer:", 2, 0, &((Teams + TeamCounter)->Player->Trikot), 1, 99);    // Trikotnummer von 1 bis 99 möglich
 }
 
 void deletePlayer()
@@ -76,7 +80,8 @@ void listOneTeam()
     printf("Teamname: %s\n", Teams->TeamName);
     printf("Trainername: %s\n", Teams->TrainerName);
 
-    for(i=0, i<=MAXPLAYERS; i++)
+    int i = 0;
+    for(i=0; i<=MAXPLAYERS; i++)
     {
         listOnePlayer();
     }
@@ -84,6 +89,7 @@ void listOneTeam()
 
 void listOnePlayer()
 {
-    printf("Spielername: %s Trikotnr.:%i Geburtsdatum:%02i.%02i.%04i", Teams->Player->Name,
-                        Teams->Player->Trikot, Teams->Player->Birthday->Day, Teams->Player->Birthday->Month, Teams->Player->Birthday->Year );
+    printf("Spielername: %s", Teams->Player->Name);
+    printf("Trikotnr.:%i", Teams->Player->Trikot);
+    printDate();     // erhählt zeiger auf TDAte
 }
