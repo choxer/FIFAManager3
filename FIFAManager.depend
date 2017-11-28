@@ -1,0 +1,207 @@
+# depslib dependency file v1.0
+1509536195 source:c:\users\felix\desktop\neuer ordner\fifamanager\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+	"Team.h"
+	"tools.h"
+	"menu.h"
+
+1509492052 c:\users\felix\desktop\neuer ordner\fifamanager\datastruct.h
+	<stdio.h>
+	<stdlib.h>
+
+1509531734 c:\users\felix\desktop\neuer ordner\fifamanager\team.c
+	"datastruct.h"
+	"Team.h"
+
+1509536794 c:\users\felix\desktop\neuer ordner\fifamanager\tools.h
+	<stdio.h>
+	<stdlib.h>
+
+1509531184 c:\users\felix\desktop\neuer ordner\fifamanager\menu.c
+	"datastruct.h"
+
+1509536487 source:c:\users\felix\desktop\neuer ordner\fifamanager\team.c
+	"datastruct.h"
+	"Team.h"
+
+1509535478 source:c:\users\felix\desktop\neuer ordner\fifamanager\menu.c
+	"datastruct.h"
+	"menu.h"
+
+1509533817 c:\users\felix\desktop\neuer ordner\fifamanager\team.h
+
+1509532144 c:\users\felix\desktop\neuer ordner\fifamanager\menu.h
+
+1510917134 source:\\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+	"Team.h"
+	"tools.h"
+	"menu.h"
+	"datetime.h"
+
+1510916724 \\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\datastruct.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510915697 \\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\team.h
+	"datastruct.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510916527 \\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\tools.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510874596 \\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\menu.h
+	"datastruct.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510923980 source:\\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\menu.c
+	"menu.h"
+
+1510924086 source:\\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\team.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Team.h"
+	"tools.h"
+	"datetime.h"
+
+1510923781 source:\\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\tools.c
+	"tools.h"
+
+1510878354 source:e:\fifamanager\tools.c
+	"tools.h"
+
+1510878064 e:\fifamanager\tools.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510874772 source:e:\fifamanager\datetime.c
+	"datetime.h"
+
+1510874690 e:\fifamanager\datetime.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+
+1510314592 e:\fifamanager\datastruct.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510878370 source:e:\fifamanager\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+	"Team.h"
+	"tools.h"
+	"menu.h"
+	"datetime.h"
+
+1510874736 e:\fifamanager\team.h
+	"datastruct.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510874596 e:\fifamanager\menu.h
+	"datastruct.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510874992 source:e:\fifamanager\menu.c
+	"menu.h"
+
+1510878116 source:e:\fifamanager\team.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Team.h"
+	"tools.h"
+	"datetime.h"
+
+1510923101 source:\\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\datetime.c
+	"datetime.h"
+
+1510922030 \\fileshares.lis.beuth-hochschule.de\userfile$\lisbeuth\s861304\desktop\fifamanager\datetime.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+
+1511869416 source:c:\users\besitzer\documents\uni\info2\fifamanager\datetime.c
+	<stdio.h>
+	"datetime.h"
+	"tools.h"
+
+1511453769 c:\users\besitzer\documents\uni\info2\fifamanager\datetime.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+
+1510891982 c:\users\besitzer\documents\uni\info2\fifamanager\datastruct.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1511886816 source:c:\users\besitzer\documents\uni\info2\fifamanager\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastruct.h"
+	"Team.h"
+	"tools.h"
+	"menu.h"
+	"datetime.h"
+
+1511369818 c:\users\besitzer\documents\uni\info2\fifamanager\team.h
+	"datastruct.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1511444285 c:\users\besitzer\documents\uni\info2\fifamanager\tools.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1510891982 c:\users\besitzer\documents\uni\info2\fifamanager\menu.h
+	"datastruct.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1511359741 source:c:\users\besitzer\documents\uni\info2\fifamanager\menu.c
+	"menu.h"
+
+1511869528 source:c:\users\besitzer\documents\uni\info2\fifamanager\team.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Team.h"
+	"tools.h"
+	"datetime.h"
+
+1511444367 source:c:\users\besitzer\documents\uni\info2\fifamanager\tools.c
+	"tools.h"
+
+1511886727 source:c:\users\besitzer\documents\uni\info2\fifamanager\database.c
+	<stdio.h>
+

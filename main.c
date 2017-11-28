@@ -1,43 +1,100 @@
 #include <stdio.h>
-#include "datastructure.h"
-#include "datetime.h"
+#include <stdlib.h>
+#include <string.h>
+#include "datastruct.h"
+#include "Team.h"
 #include "tools.h"
 #include "menu.h"
+#include "datetime.h"
+#include "database.h"
+#define NULL 0
+//------------Mannschaften-Verwaltung-----------------------//
 
-int main(void)
+
+//Angaben zu Menutitel, Anzahl der Untermenus und derer Namen //
+
+
+int main()
 {
-    // TEST:
-    //TDate TESTDATE;
-    //char input[21];
-    //int test;
-    //getMenu("HALLO", TMenuPkte.MenuPunkte[], 8 );
 
-    /*
-    do
-    {
-    clearScreen();
-    printf("Hinweis: Druecken Sie nur die Eingabetaste,\n");
-    printf("         um die jeweilige Eingabe abzubrechen.\n\n");
-    inputDate();
-    inputTime();
-    */
 
-    // TEST:
-    /*
-    scanf("%20[^\n]", input);
-    clearBuffer();
-    printf("%s\n", input);
-    test = atoi(input);
-    printf("%i\n", test);
-    */
-   //} while (askYesOrNo("Moechten Sie noch einmal (j/n) ?"));
+    int anzmenu=8;                          //ANzahl der menus
 
-   return 0;
+    TMTitel ArrMTitel[anzmenu];         //Array von struct TMenuTitel
+                                    //in struct char MTitel[]
+
+     //füllen der Titel
+     strcpy(ArrMTitel[0].MTitel,"Neue Mannschaft anlegen");
+     strcpy(ArrMTitel[1].MTitel,"Spieler hinzufuegen");
+     strcpy(ArrMTitel[2].MTitel,"Spieler loeschen");
+     strcpy(ArrMTitel[3].MTitel,"Mannschaft loeschen");
+     strcpy(ArrMTitel[4].MTitel,"Suchen");
+     strcpy(ArrMTitel[5].MTitel,"Sortieren");
+     strcpy(ArrMTitel[6].MTitel,"Auflisten");
+     strcpy(ArrMTitel[7].MTitel,"Programm beenden");
+
+
+    char Menutitel[]={"Mannschaften-Verwaltung"};
+
+
+    //-----------------Aufruf von Menu funktion--------------------------------//
+
+    int ok=0;
+    do{
+        int eingabe = getmenu((&Menutitel[0]),ArrMTitel,anzmenu);
+
+        switch(eingabe) {
+            case 0:
+
+                    createTeam();
+                    WaitForEnter(); break;
+
+            case 1:
+
+                    do
+                    {
+
+
+                    TPlayer *newPlayer;
+                    newPlayer = malloc(sizeof(TPlayer));
+
+                    if ( newPlayer == NULL )
+                    {
+                        printf("ERROR:SPEICHERRESERVIERUNG NEWPLAYER");
+                    }else
+                    {
+                        addPlayer();
+                    }
+
+                    free(newPlayer);
+                    }while( askYesorNo("Wollen sie noch einen Spieler anlegen?") );
+
+
+
+                    break;
+
+            case 2: deletePlayer();
+                    WaitForEnter(); break;
+
+            case 3: deleteTeam();
+                    WaitForEnter(); break;
+
+            case 4: searchPlayer();
+                    WaitForEnter(); break;
+
+            case 5: sortTeams();
+                    WaitForEnter(); break;
+
+            case 6: listTeams();
+                    WaitForEnter(); break;
+
+            case 7: endprog();ok=1;   break;
+
+            //case 8: load(); break;
+
+            default:printf("ERROR:Menuauswahl\n") ; break;
+            }
+    }while(!ok);
+    load();
+    return 0;
 }
-
-
-
-
-
-
-

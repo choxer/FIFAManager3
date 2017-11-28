@@ -31,14 +31,34 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="TEAM.H" />
+		<Unit filename="Team.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="database.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="database.h" />
+		<Unit filename="datastruct.h" />
+		<Unit filename="datetime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="datetime.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
+		<Unit filename="tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tools.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
-			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
