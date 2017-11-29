@@ -1,2 +1,7 @@
-  HaLLO!--->
-1234
+<Daten>
+            <Team>
+    <Player>
+ 	<Name>Christian Fruechtl</Name>
+ 	<Birthday>28.01.2000</Birthday>
+</Daten>
+</Daten>
