@@ -161,7 +161,7 @@
 	<stdlib.h>
 	<string.h>
 
-1511886816 source:c:\users\besitzer\documents\uni\info2\fifamanager\main.c
+1511886922 source:c:\users\besitzer\documents\uni\info2\fifamanager\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -170,6 +170,7 @@
 	"tools.h"
 	"menu.h"
 	"datetime.h"
+	"database.h"
 
 1511369818 c:\users\besitzer\documents\uni\info2\fifamanager\team.h
 	"datastruct.h"
@@ -202,6 +203,10 @@
 1511444367 source:c:\users\besitzer\documents\uni\info2\fifamanager\tools.c
 	"tools.h"
 
-1511886727 source:c:\users\besitzer\documents\uni\info2\fifamanager\database.c
+1511962669 source:c:\users\besitzer\documents\uni\info2\fifamanager\database.c
 	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1511869822 c:\users\besitzer\documents\uni\info2\fifamanager\database.h
 
