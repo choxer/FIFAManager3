@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1512047113 source:/media/rooty/dfed7772-e276-45b4-bb65-0da157d1cf98/uni/info2/FIFAManager3-master/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
