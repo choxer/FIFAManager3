@@ -1,13 +1,14 @@
 #ifndef DATABASE_H_INCLUDED
 #define DATABASE_H_INCLUDED
 
-// Ldaen und Speichern der Daten
+// Laden und Speichern der Daten
 
 // speichern
-void save();
-void saveTeam();    // parameter: Datenstrom der offenen Datei
-void savePlayer();
-
+void save(FILE *);
+void saveTeam(FILE *,char *);    // parameter: Datenstrom der offenen Datei
+void savePlayer(FILE *,char *);
+char *  scanZeilenanfang(char[],char *,FILE *,char *,int);
+void delete_newline(char Zeile[]);
 // laden
 void load();
 void loadTeam();
