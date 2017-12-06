@@ -21,7 +21,7 @@ typedef struct {        //Struct mit Spielername,Geburtstag,Trikonummer
     char    *Playern;
     TDate   *Birthday;
     int     Trikotn;
-    int     goals;
+    int     Goals;
 
 }TPlayer;
 

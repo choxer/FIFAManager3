@@ -4,8 +4,8 @@
     <Player>
  	<Name>Christian Fruechtl</Name>
  	<Birthday>28.01.2000</Birthday>
- 	<TricotNr>14</TricotNr>      
- 	<Goals>2</Goals>      
+ 	<TricotNr>14</TricotNr>
+ 	<Goals>2</Goals>
     </Player>
   </Team>
 </Daten>

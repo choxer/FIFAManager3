@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tools.h"
+#include "datastruct.h"
+#define NULL 0
 
 enum{MAXZEICHEN=101};
-
+extern int TeamCounter;     //Deklaration von globalen variabeln,
+extern TTeam Teams[MAXTEAM];
 
 char * scanZeilenanfang(char Zeile[MAXZEICHEN],char *Zeilenanfang,FILE *data)
 {
@@ -37,92 +40,195 @@ void savePlayer(FILE *data,char *Zeilenanfang)
 {
     char Zeile[MAXZEICHEN];
     //int Nr = 0;
+
+    if(strncmp(Zeilenanfang,"<Player>",8)==1)
+    {
+        printf("beginn Player nicht mit <Player> ");
+        return;
+    }
+
     printf("\n");
     printf("    ");//leerzeichen für Player
     printf("->%s\n",Zeilenanfang);
 
+    printf("    ");//leerzeichen für Player
+    printf("teamcounter:%i\n",TeamCounter);
+
+    ((Teams+TeamCounter)->AnzPlayer)++;
+    int anzPlayer = (Teams+TeamCounter)->AnzPlayer;
+
+    if(anzPlayer >= MAXTEAM)
+    {
+        printf("    ");//leerzeichen für Player
+        printf("ERROR: MAXPLAYER: %i anzPlayer: %i\n",MAXPLAYER,anzPlayer);
+        return;
+    }
+
+    printf("    ");//leerzeichen für Player
+    printf("anzPlayer:%i\n",anzPlayer);
+    printf("\n");
+
     do
     {
-        //clearBuffer();
-        /* char dummy;
-            do
-            {
-                fscanf(data,"%c", &dummy);
-            } while(dummy != '\n');
-        */
-
         fgets(Zeile,100,data);
         delete_newline(Zeile);
         Zeilenanfang = scanZeilenanfang(Zeile,Zeilenanfang,data);
-        //printf("    ");//leerzeichen für Player
-        //printf("%i: %s\n", ++Nr, Zeilenanfang);
+
         if(strncmp(Zeilenanfang,"<Name>",6)==0)
         {
-            printf("    ");//leerzeichen für Player
-            printf("Spielername: %s\n",Zeilenanfang);
-            /*
             int Len;
-            char *Title;
+            char *Title = NULL;
 
-            Len = strlen( Zeile +6  ) - 7;
+            Len = strlen( Zeilenanfang +6  ) - 7;
 
-            if ( strncmp( Zeilenanfang + Len, "</Name>", 7) == 0 )
+            if ( strncmp( Zeilenanfang +6 + Len, "</Name>", 7) == 0 )
             {
-                printf("test\n  ");
                 Title = calloc( Len + 1, sizeof( char ) );
 
                     if ( Title )
                     {
-                        strncpy( Title, Zeile + 6, Len );
-                        printf("title: %s\n",Title);
+                        strncpy( Title, Zeilenanfang + 6, Len );
+
+                        //(Teams+TeamCounter)->(Player+anzPlayer)->Playern = Title;
+
+                        printf("    ");//leerzeichen für Player
+                        printf("Name: %s\n",Title);
+                        //printf("Name: %s\n",(Teams+TeamCounter)->(Player+anzPlayer)->Playern);
+
+                        free(Title);                                                //für test!!
                     }
             }
-            */
         }
 
         if(strncmp(Zeilenanfang,"<Birthday>",10)==0)
         {
-            printf("    ");//leerzeichen für Player
-            printf("Birthday: %s\n",Zeilenanfang);
+            //printf("    ");//leerzeichen für Player
+            //printf("Birthday: %s\n",Zeilenanfang);
+            int Len;
+            char *Birthday = NULL;
+
+            Len = strlen( Zeilenanfang +10  ) - 11;
+
+            if ( strncmp( Zeilenanfang +10 + Len, "</Birthday>", 11) == 0 )
+            {
+                Birthday = calloc( Len + 1, sizeof( char ) );
+
+                    if ( Birthday )
+                    {
+                        strncpy( Birthday, Zeilenanfang + 10, Len );
+                        printf("    ");//leerzeichen für Player
+                        printf("Birthday: %s\n",Birthday);
+
+
+                        free(Birthday);                                                //für test!!
+                    }
+            }
         }
+
         if(strncmp(Zeilenanfang,"<TricotNr>",10)==0)
         {
-            printf("    ");//leerzeichen für Player
-            printf("TricotNr: %s\n",Zeilenanfang);
+            int     Len;
+            char    *TricotNr;
+            int     *intTricotNr;
+
+            Len = strlen( Zeilenanfang +10  ) - 11;
+
+            if ( strncmp( Zeilenanfang +10 + Len, "</TricotNr>", 11) == 0 )
+            {
+                  TricotNr = calloc( Len + 1, sizeof( char ) );
+                  if(TricotNr)
+                  {
+
+                  strncpy( TricotNr, Zeilenanfang + 10, Len );
+
+                  intTricotNr = malloc(sizeof(int));
+
+                    if(intTricotNr)
+                    {
+
+                    *intTricotNr = atoi(TricotNr);
+
+                    printf("    ");//leerzeichen für Player
+                    printf("TricotNr: %i\n",*intTricotNr);
+
+                    free(TricotNr);
+                    free(intTricotNr);                                                //für test!!
+
+                    }
+                  }
+            }
         }
 
         if(strncmp(Zeilenanfang,"<Goals>",7)==0)
         {
-            printf("    ");//leerzeichen für Player
-            printf("Goals: %s\n",Zeilenanfang);
+
+            int     Len;
+            char    *Goals;
+            int     *intGoals;
+
+            Len = strlen( Zeilenanfang +7  ) - 8;
+
+            if ( strncmp( Zeilenanfang +7 + Len, "</Goals>", 8) == 0 )
+            {
+
+                Goals = calloc( Len + 1, sizeof( char ) );
+
+                if ( Goals )
+                {
+                     strncpy( Goals, Zeilenanfang + 7, Len );
+
+                      intGoals  = malloc(sizeof(int));
+                      {
+                            *intGoals = atoi(Goals);
+
+                            //(Teams+TeamCounter)->(Player+anzPlayer)->Goals = intGoals;
+
+                            printf("    ");//leerzeichen für Player
+                            printf("Goals: %i\n",*intGoals);
+
+                            free(Goals);
+                            free(intGoals);                                                //für test!!
+                      }
+
+                }
+            }
         }
 
         if(strncmp(Zeilenanfang,"</Player>",9)==0)
         {
             printf("    ");//leerzeichen für Player
             printf("%s\n",Zeilenanfang);
-            printf("\n");
-
         }
 
         if ( feof( data) )
         {
-            printf("Test feof\n");
+            printf("Player feof\n");
             break;
         }
 
     }while(strncmp(Zeilenanfang,"</Player>",9)!=0);
-
 }
 
 
 void saveTeam(FILE *data,char *Zeilenanfang)
 {
+
+    if(strncmp(Zeilenanfang,"<Team>",6)==1)
+    {
+        printf("beginn team nicht mit <Team> ");
+        return;
+    }
+
     char Zeile[MAXZEICHEN];
 
     printf("\n");
     printf("  ");//leerzeichen für team
     printf("->%s\n",Zeilenanfang);
+
+    TeamCounter++;
+    printf("  ");//leerzeichen für team
+    printf("teamcounter:%i\n",TeamCounter);
+    printf("\n");
 
     do
     {
@@ -135,24 +241,51 @@ void saveTeam(FILE *data,char *Zeilenanfang)
         if(strncmp(Zeilenanfang,"<Player>",8)==0)
         {
             savePlayer(data,Zeilenanfang);
+
+            if(strncmp(Zeilenanfang,"</Player>",6)==1)
+            {
+                printf("ende player nicht mit </Player> ");
+                return;
+            }
         }
 
         if(strncmp(Zeilenanfang,"<Name>",6)==0)
         {
-            printf("  ");//leerzeichen für Player
-            printf("Mannschaft: %s\n",Zeilenanfang);
+            //printf("  ");//leerzeichen für Player
+            //printf("Mannschaft: %s\n",Zeilenanfang);
+
+            int Len;
+            char *Title;
+
+            Len = strlen( Zeilenanfang +6  ) - 7;
+
+            if ( strncmp( Zeilenanfang +6 + Len, "</Name>", 7) == 0 )
+            {
+                Title = calloc( Len + 1, sizeof( char ) );
+
+                    if ( Title )
+                    {
+                        strncpy( Title, Zeilenanfang + 6, Len );
+                        printf("  ");//leerzeichen für team
+                        printf("Mannschaft: %s\n",Title);
+                        free(Title);
+                    }
+            }
         }
 
         if(strncmp(Zeilenanfang,"</Team>",7)==0)
         {
             printf("  ");//leerzeichen für team
             printf("%s\n",Zeilenanfang);
-            printf("\n");
         }
 
 
         if ( feof( data ) )
+        {
             break;
+            printf("team feof");
+        }
+
 
 
 
@@ -162,13 +295,18 @@ void saveTeam(FILE *data,char *Zeilenanfang)
 
 void save(FILE *data)
 {
+
     char Zeile[MAXZEICHEN];
     char *Zeilenanfang;
 
     do
     {
-        fscanf(data,"%s[^\n]",Zeile);
-        Zeilenanfang=scanZeilenanfang(Zeile,Zeilenanfang,data);
+        fgets(Zeile,100,data);
+        delete_newline(Zeile);
+        Zeilenanfang = scanZeilenanfang(Zeile,Zeilenanfang,data);
+
+
+
 
         if(  strncmp(Zeilenanfang , "<Team>" , 6) == 0 )
         {
