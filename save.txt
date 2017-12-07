@@ -1,0 +1,15 @@
+<Daten>
+  <Team>
+    <Player>
+    <Name>Christian hund</Name>
+    </Player>
+  </Team>
+  <Team>
+    <Player>
+    <Name>Christian hund</Name>
+    </Player>
+    <Player>
+    <Name>Christian hund</Name>
+    </Player>
+  </Team>
+</Daten>

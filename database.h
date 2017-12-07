@@ -3,15 +3,19 @@
 
 // Laden und Speichern der Daten
 
-// speichern
-void save(FILE *);
-void saveTeam(FILE *,char *);    // parameter: Datenstrom der offenen Datei
-void savePlayer(FILE *,char *);
+// Laden
+void load(FILE *);              // parameter: Datenstrom der offenen Datei
+void loadTeam(FILE *,char *);
+void loadPlayer(FILE *,char *);
+
+//Save
+void save(FILE *);              // parameter: Datenstrom der offenen Datei
+void saveTeam(FILE *, int );
+void savePlayer(FILE *,int,int);
+
+
+//tools
 char *  scanZeilenanfang(char[],char *,FILE *,char *,int);
 void delete_newline(char Zeile[]);
-// laden
-void load();
-void loadTeam();
-void loadPlayer();
 
 #endif // DATABASE_H_INCLUDED

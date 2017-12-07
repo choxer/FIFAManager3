@@ -5,7 +5,6 @@
 
 int isleapyear(TDate today)
 {
-
     int year = today.Year;
 
     if(year%4==0&&year%100!=0)    //teilbar durch 4 nicht 100 = svhaltjahr
@@ -27,10 +26,11 @@ int isleapyear(TDate today)
 
 int isdatevalid(TDate today)
 {
-    int leapyear = isleapyear(today);
-    int month=today.Month;
-    int day=today.Day;
-    int year=today.Year;
+
+    int day         =   today.Day;
+    int month       =   today.Month;
+    int year        =   today.Year;
+    int leapyear    =   isleapyear(today);
 
     if(day>31||day==0)
     {   return 0;                   //Tage über 31 und nicht 0.
@@ -134,7 +134,7 @@ int getDate(char eingabeAufruf[], int optional)
         //printf("Ihre Eingabe: %02i.%02i.%04i\n", today->Day, today->Month, today->Year);
         //printDate(today);
 
-        if(isdatevalid(*today)==1)           //testet ob valid ist und übergibt an
+        if(isdatevalid( *today )==1)           //testet ob valid ist und übergibt an
         {
             // unsere struct
             //TDate *birthday;
@@ -177,5 +177,5 @@ void printDate(TDate *Date)
     int  imonth  = Date->Month;
     int  iyear   = Date->Year;
 
-    printf("%02i.%02i.%04i", iday, imonth, iyear);
+    printf("%02i.%02i.%04i\n", iday, imonth, iyear);
 }
