@@ -40,7 +40,7 @@ int isdatevalid(TDate today)
     {   return 0;
     }
 
-    if(year<1990||year>2999||year==0) // jahr muss zwichen 1990 und 2999 und
+    if(year<1900||year>2999||year==0) // jahr muss zwichen 1990 und 2999 und
     {   return 0;                      // nicht 0 sein.
     }
 

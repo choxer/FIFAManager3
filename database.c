@@ -3,6 +3,7 @@
 #include <string.h>
 #include "tools.h"
 #include "datastruct.h"
+#include "datetime.h"
 #define NULL 0
 
 enum{MAXZEICHEN=101};
@@ -116,8 +117,21 @@ void savePlayer(FILE *data,char *Zeilenanfang)
                     if ( Birthday )
                     {
                         strncpy( Birthday, Zeilenanfang + 10, Len );
+
+                        char delimiter[] = ",.:";
+                        TDate *Date;
+
+                        Date->Day    = strtok(Birthday, delimiter);    // initialisieren und ersten Abschnitt erstellen
+                        Date->Month  = strtok(NULL, delimiter);
+                        Date->Year   = strtok(NULL, delimiter);
+
                         printf("    ");//leerzeichen für Player
-                        printf("Birthday: %s\n",Birthday);
+                        printf("Birthday: %s"   , Date->Day);
+                        printf(".%s"            , Date->Month);
+                        printf(".%s\n"          , Date->Year);
+
+                        int kk = isdatevalid(*Date);
+                        printf("%i",kk);
 
 
                         free(Birthday);                                                //für test!!
@@ -148,9 +162,13 @@ void savePlayer(FILE *data,char *Zeilenanfang)
 
                     *intTricotNr = atoi(TricotNr);
 
+                    (((Teams+TeamCounter)->Player)+anzPlayer)->Trikotn = malloc(sizeof(int));
+                    (((Teams+TeamCounter)->Player)+anzPlayer)->Trikotn = intTricotNr;
+
                     printf("    ");//leerzeichen für Player
                     printf("TricotNr: %i\n",*intTricotNr);
 
+                    free((((Teams+TeamCounter)->Player)+anzPlayer)->Trikotn);
                     free(TricotNr);
                     free(intTricotNr);                                                //für test!!
 
@@ -181,13 +199,15 @@ void savePlayer(FILE *data,char *Zeilenanfang)
                       {
                             *intGoals = atoi(Goals);
 
-                            //(Teams+TeamCounter)->(Player+anzPlayer)->Goals = intGoals;
+                            (((Teams+TeamCounter)->Player)+anzPlayer)->Goals = malloc(sizeof(int));
+                            (((Teams+TeamCounter)->Player)+anzPlayer)->Goals = *intGoals;
 
                             printf("    ");//leerzeichen für Player
-                            printf("Goals: %i\n",*intGoals);
+                            printf("Goals: %i\n",(((Teams+TeamCounter)->Player)+anzPlayer)->Goals);
 
+                            free((((Teams+TeamCounter)->Player)+anzPlayer)->Goals);     //für test!!
                             free(Goals);
-                            free(intGoals);                                                //für test!!
+                            free(intGoals);
                       }
 
                 }
