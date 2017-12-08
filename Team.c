@@ -139,28 +139,28 @@ void listTeams(void)
     }
 }
 
-void listOneTeam(int i)
+void listOneTeam(int TC)
 {
     int j = 0;
-    int k = 1;
+    int k = 0;
 
-    printf("Name            : %s\n", Teams[i].Teamn );
+    printf("Name            : %s\n", (Teams+TC)->Teamn );
 
 
 
-    if( (Teams[i].Coach) )
-        printf("Trainer         : %s\n", Teams[i].Coach);
+    if( ((Teams+TC)->Coach) )
+        printf("Trainer         : %s\n", (Teams+TC)->Coach);
     //printf("Trainer         :");
     else
         printf("Trainer         :   \n");
 
 
-    printf("Anzahl Spieler  : %i\n", Teams[i].AnzPlayer);
+    printf("Anzahl Spieler  : %i\n", (Teams+TC)->AnzPlayer);
     printf("Spieler:\n");
 
-    for(j=0; j<Teams[i].AnzPlayer; j++)
+    for(j=0; j<((Teams+TC)->AnzPlayer); j++)
     {
-        listOnePlayer(k, i);
+        listOnePlayer(k, TC);
         k++;
     }
 }
@@ -171,7 +171,7 @@ void listOnePlayer(int k, int i)
 
     int Date = Teams[i].Player[k-1].Birthday;
 
-    printf("%i. %s            (%i; * ", k, ((Teams[i].Player[k-1]).Playern), Teams[i].Player[k-1].Trikotn);
+    printf("%2i. %25s(%i; * ", k, ((Teams[i].Player[k-1]).Playern), Teams[i].Player[k-1].Trikotn);
 
     if(Date)
         printDate( Date );
