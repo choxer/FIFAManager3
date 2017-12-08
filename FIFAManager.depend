@@ -391,12 +391,11 @@
 1512119888 source:e:\1.12\cool\fifamanager4.0\fifamanager3-fekubeu-patch-1\fifamanager3-fekubeu-patch-1\fifamanager3-master\tools.c
 	"tools.h"
 
-1512662669 source:c:\users\felix\desktop\aktuell info\fifamanager3-master\database.c
+1512690859 source:c:\users\felix\desktop\aktuell info\fifamanager3-master\database.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"tools.h"
-	"datastruct.h"
 	"datetime.h"
 
 1512119888 c:\users\felix\desktop\aktuell info\fifamanager3-master\tools.h
@@ -420,13 +419,14 @@
 	<stdlib.h>
 	<string.h>
 
-1512660085 source:c:\users\felix\desktop\aktuell info\fifamanager3-master\main.c
+1512680705 source:c:\users\felix\desktop\aktuell info\fifamanager3-master\main.c
 	<stdio.h>
 	<stdlib.h>
 	"database.h"
 	"tools.h"
 
-1512662105 c:\users\felix\desktop\aktuell info\fifamanager3-master\database.h
+1512688998 c:\users\felix\desktop\aktuell info\fifamanager3-master\database.h
+	"datastruct.h"
 
 1512119886 source:c:\users\felix\desktop\aktuell info\fifamanager3-master\menu.c
 	"menu.h"

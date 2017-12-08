@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tools.h"
-#include "datastruct.h"
 #include "datetime.h"
 #define NULL 0
 
@@ -40,6 +39,31 @@ void delete_newline(char Zeile[MAXZEICHEN])
                break;
       }
 }
+
+/*
+TDate * strDate(char *Birthday, const char *Delimeters)
+{
+int anzPlayer = (Teams+TeamCounter)->AnzPlayer;
+
+TDate *Date;
+    Date->Day    = strtok( Birthday , Delimeters );    // initialisieren und ersten Abschnitt erstellen
+    Date->Month  = strtok( NULL , Delimeters );
+    Date->Year   = strtok( NULL , Delimeters );
+
+    Date->Day=atoi(Date->Day);
+    Date->Month=atoi(Date->Month);
+    Date->Year=atoi(Date->Year);
+
+    if(isdatevalid(*Date))
+    {
+        (((Teams+TeamCounter)->Player)+anzPlayer)->Birthday = malloc(sizeof(TDate));
+        ((((Teams+TeamCounter)->Player)+anzPlayer)->Birthday)->Day = Date->Day;
+        ((((Teams+TeamCounter)->Player)+anzPlayer)->Birthday)->Month = Date->Month;
+        ((((Teams+TeamCounter)->Player)+anzPlayer)->Birthday)->Year = Date->Year;
+    }
+    return Date;
+}
+*/
 
 //------------------------------loadPlayer
 
@@ -121,6 +145,7 @@ void loadPlayer(FILE *data,char *Zeilenanfang)
                         strncpy( Birthday, Zeilenanfang + 10, Len );
 
                         char delimiter[] = ",.:";
+
                         TDate *Date;
 
                         Date->Day    = strtok(Birthday, delimiter);    // initialisieren und ersten Abschnitt erstellen
@@ -130,6 +155,7 @@ void loadPlayer(FILE *data,char *Zeilenanfang)
                         Date->Day=atoi(Date->Day);
                         Date->Month=atoi(Date->Month);
                         Date->Year=atoi(Date->Year);
+
 
                         if(isdatevalid(*Date))
                         {
@@ -174,7 +200,7 @@ void loadPlayer(FILE *data,char *Zeilenanfang)
                     *intTricotNr = atoi(TricotNr);
 
                     (((Teams+TeamCounter)->Player)+anzPlayer)->Trikotn = malloc(sizeof(int));
-                    (((Teams+TeamCounter)->Player)+anzPlayer)->Trikotn = intTricotNr;
+                    (((Teams+TeamCounter)->Player)+anzPlayer)->Trikotn = *intTricotNr;
 
                     printf("    ");//leerzeichen für Player
                     printf("TricotNr: %i\n",*intTricotNr);
@@ -298,7 +324,6 @@ void loadTeam(FILE *data,char *Zeilenanfang)
 
                         printf("  ");//leerzeichen für team
                         printf("Mannschaft: %s\n",(Teams+TeamCounter)->Teamn);
-                        free((Teams+TeamCounter)->Teamn);
                         free(Title);
                     }
             }
@@ -324,7 +349,6 @@ void loadTeam(FILE *data,char *Zeilenanfang)
 
                         printf("  ");//leerzeichen für team
                         printf("Trainer: %s\n",(Teams+TeamCounter)->Coach);
-                        free((Teams+TeamCounter)->Coach);
                         free(Trainer);
                     }
             }
@@ -389,9 +413,8 @@ void load(FILE *data)
     }while(strncmp(Zeilenanfang,"</Data>",7)!=0);
 }
 //------------------------------SavePlayer
-savePlayer(FILE *data,int TC,int PC)
+savePlayer(FILE *data, int TC , int PC)
 {
-
     fputs("    ",data);
     fputs("<Player>\n",data);
 
@@ -400,36 +423,49 @@ savePlayer(FILE *data,int TC,int PC)
     fputs( (((Teams+TC)->Player)+PC)->Playern ,data);
     fputs("</Name>",data);
     fputs("\n",data);
-    free((((Teams+TC)->Player)+PC)->Playern);
+    free( (((Teams+TC)->Player)+PC)->Playern);
 
 
-    /*
+    char tag[5];
+    char monat[5];
+    char jahr[5];
+
+    itoa( (((((Teams+TC)->Player)+PC)->Birthday)->Day )     ,tag    ,10);
+    itoa( (((((Teams+TC)->Player)+PC)->Birthday)->Month )   ,monat ,10);
+    itoa( (((((Teams+TC)->Player)+PC)->Birthday)->Year )    ,jahr   ,10);
+
     fputs("    ",data);         //Birthday
-    fputs( ((((Teams+TC)->Player)+PC)->Birthday)->Day ,data);
+    fputs("<Birthday>",data);
+    fputs( tag ,data);
     fputs(".",data);
-    fputs( ((((Teams+TC)->Player)+PC)->Birthday)->Month ,data);
+    fputs( monat ,data);
     fputs(".",data);
-    fputs( ((((Teams+TC)->Player)+PC)->Birthday)->Year ,data);
+    fputs( jahr ,data);
+    fputs("</Birthday>",data);
     fputs("\n",data);
-    */
-    free((((Teams+TC)->Player)+PC)->Birthday);  //für test!!
 
-    /*
-    fputs("    ",data);     //Trikonummer
+    free((((Teams+TC)->Player)+PC)->Birthday);
+
+
+    char TNr[5];                                            //Trikonummer
+    itoa( ((((Teams+TC)->Player)+PC)->Trikotn ), TNr , 10);
+    fputs("    ",data);
     fputs("<TricotNr>",data);
-    fputs( (((Teams+TC)->Player)+PC)->Trikotn , data );
+    fputs( TNr , data );
     fputs("</TricotNr>",data);
     fputs("\n",data);
-    */
+
     free( (((Teams+TC)->Player)+PC)->Trikotn );
 
-    /*
-    fputs("    ",data);    //Goals
+
+    char Goals[5];                                           //Goals
+    itoa ( (((Teams+TC)->Player)+PC)->Goals , Goals , 10);
+    fputs("    ",data);
     fputs("<Goals>",data);
-    fputs( (((Teams+TC)->Player)+PC)->Goals , data );
+    fputs( Goals , data );
     fputs("</Goals>",data);
     fputs("\n",data);
-    */
+
     free( (((Teams+TC)->Player)+PC)->Goals );
 
 
@@ -446,10 +482,24 @@ saveTeam(FILE *data,int TC)
     fputs("  ",data);
     fputs("<Team>\n",data);
 
+    fputs("  ",data);         //Spielername
+    fputs("<Name>",data);
+    fputs( (Teams+TC)->Teamn ,data);
+    fputs("</Name>",data);
+    fputs("\n",data);
+    free( (Teams+TC)->Teamn );
+
+    fputs("  ",data);         //Spielername
+    fputs("<Trainer>",data);
+    fputs( (Teams+TC)->Coach ,data);
+    fputs("</Trainer>",data);
+    fputs("\n",data);
+    free( (Teams+TC)->Coach );
+
+
     for(i=0;i<anzPlayer;i++)
     {
-        int PC = (anzPlayer+i)-(anzPlayer);
-        savePlayer(data,TC,PC);
+        savePlayer(data,TC,i);
     }
 
     fputs("  ",data);
@@ -459,14 +509,13 @@ saveTeam(FILE *data,int TC)
 
 //------------------------------Save
 
-save(FILE *data)
+void save(FILE *data)
 {
     int i;
     fputs("<Daten>\n",data);
     for(i=0;i<TeamCounter;i++)
     {
-        int TC = (TeamCounter+i)-(TeamCounter);
-        saveTeam(data,TC);
+        saveTeam(data,i);
     }
     fputs("</Daten>\n",data);
 }

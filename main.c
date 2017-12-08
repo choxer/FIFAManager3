@@ -16,9 +16,10 @@ int main()
     {
         printf("ERROR: datei konnte nicht geoffnet werden\n");
     }
-    FILE *Datei2= fopen("save.txt", "w");
+    FILE *Datei2= fopen("save2.txt", "w");
     if(Datei2)
     {
+
         save(Datei2);
     }
     else

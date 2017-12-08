@@ -1,0 +1,28 @@
+<Daten>
+  <Team>
+  <Name>Team1</Name>
+  <Trainer>cooler typ</Trainer>
+    <Player>
+    <Name>Felix Kus</Name>
+    <Birthday>18.9.1996</Birthday>
+    <TricotNr>18</TricotNr>
+    <Goals>4</Goals>
+    </Player>
+  </Team>
+  <Team>
+  <Name>bayern muenchen</Name>
+  <Trainer></Trainer>
+    <Player>
+    <Name>Christian hund21</Name>
+    <Birthday>28.1.2000</Birthday>
+    <TricotNr>99</TricotNr>
+    <Goals>2</Goals>
+    </Player>
+    <Player>
+    <Name>Christian hund22</Name>
+    <Birthday>28.1.2000</Birthday>
+    <TricotNr>14</TricotNr>
+    <Goals>2</Goals>
+    </Player>
+  </Team>
+</Daten>

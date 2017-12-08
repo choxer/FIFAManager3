@@ -1,5 +1,6 @@
 #ifndef DATABASE_H_INCLUDED
 #define DATABASE_H_INCLUDED
+#include "datastruct.h"
 
 // Laden und Speichern der Daten
 
@@ -10,12 +11,12 @@ void loadPlayer(FILE *,char *);
 
 //Save
 void save(FILE *);              // parameter: Datenstrom der offenen Datei
-void saveTeam(FILE *, int );
-void savePlayer(FILE *,int,int);
+void saveTeam(FILE *,int TC);
+void savePlayer(FILE *,int TC,int PC);
 
 
 //tools
 char *  scanZeilenanfang(char[],char *,FILE *,char *,int);
 void delete_newline(char Zeile[]);
-
+//TDate * strDate(char *, const char *)
 #endif // DATABASE_H_INCLUDED
